@@ -1,0 +1,27 @@
+defmodule ForumWeb.PostJSON do
+  alias Forum.Posts.Post
+
+  @doc """
+  Renders a list of posts.
+  """
+  def index(%{posts: posts}) do
+    # Changing data: for userData: for UI (in Postman, for example)
+    %{allPosts: for(post <- posts, do: data(post))}
+  end
+
+  @doc """
+  Renders a single post.
+  """
+  def show(%{post: post}) do
+    # same as for index, above
+    %{dataUser: data(post)}
+  end
+
+  defp data(%Post{} = post) do
+    %{
+      id: post.id,
+      body: post.body,
+      title: post.title
+    }
+  end
+end
