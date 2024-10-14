@@ -36,6 +36,8 @@ defmodule Forum.Accounts do
 
   """
   def get_user!(id), do: Repo.get!(User, id)
+  # Adding posts owned by the user
+  |> Repo.preload(:posts)
 
   @doc """
   Creates a user.

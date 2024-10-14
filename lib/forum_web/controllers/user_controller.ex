@@ -12,7 +12,10 @@ defmodule ForumWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
+    # Create a variable
+    userParams = Accounts.create_user(user_params)
+    with {:ok, %User{} = user} <- userParams do
+      IO.inspect(userParams, label: "User Params Send")
       conn
       |> put_status(:created)
       |> put_resp_header("location", ~p"/api/users/#{user}")

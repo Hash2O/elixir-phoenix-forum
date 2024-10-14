@@ -17,11 +17,12 @@ defmodule ForumWeb.PostJSON do
     %{dataUser: data(post)}
   end
 
-  defp data(%Post{} = post) do
+  def data(%Post{} = post) do
     %{
       id: post.id,
       body: post.body,
-      title: post.title
+      title: post.title,
+      user_id: post.user_id
     }
   end
 end

@@ -1,6 +1,7 @@
 <h1>Users Page !</h1>
 <!-- Using template engine ofr Elixir, called Eex -->
  <ul>
+    <!-- Boucle for syntax, here in users data -->
  <%= for user <- @users do %>
     <li><%= user.name %> - <%= user.email %></li>
     <% end %>
